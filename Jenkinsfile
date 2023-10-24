@@ -6,21 +6,27 @@ pipeline {
             SONAR_PASSWORD = "sonar"
       }
       stages {
-            stage("MVN Clean") {
+            stage("Clean") {
                   steps{
                         sh "mvn clean"
                   }
             }
             
-            stage("MVN Compile") {
+            stage("Compile") {
                   steps{
                         sh "mvn compile"
                   }
             }
             
-            stage("MVN SonarQube") {
+            stage("SonarQube") {
                   steps{
                        sh "mvn sonar:sonar -Dsonar.login=${env.SONAR_LOGIN} -Dsonar.password=${env.SONAR_PASSWORD}"
+                  }
+            }
+
+            stage("JUnit/Mockito") {
+                  steps{
+                        sh "mvn test"
                   }
             }
             
