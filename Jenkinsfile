@@ -2,8 +2,8 @@ pipeline {
 
       agent any
       environment {
-            SONAR_LOGIN = credentials('admin')
-            SONAR_PASSWORD = credetials('sonar')
+            SONAR_LOGIN = "admin"
+            SONAR_PASSWORD = "sonar"
       }
       stages {
             stage("MVN SonarQube"){
