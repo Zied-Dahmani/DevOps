@@ -5,7 +5,7 @@ pipeline {
       stages {
             stage("MVN SonarQube"){
                   steps{
-                        sh 'mv sonar:sonar'
+                        sh 'mvn sonar:sonar'
                   }
             }
             
