@@ -35,5 +35,25 @@ pipeline {
                         sh "mvn deploy"
                   }
             }
+
+            stage("Docker Image") {
+                  steps{
+                        sh "docker build -t devops:1.0 ."
+                  }
+            }
+
+            stage("Docker Hub") {
+                    steps{
+                          sh "docker login -u louayyy69 -p dckr_pat_s4bthkcjix1AKw0Ptu3DW06gg-s"
+                          sh "docker tag devops:1.0 louayyy69/devops:1.0"
+                          sh "docker push louayyy69/devops:1.0"
+                    }
+            }
+
+            stage("Docker Compose") {
+                  steps{
+                        sh "docker compose up -d"
+                  }
+            }
       }
 }
