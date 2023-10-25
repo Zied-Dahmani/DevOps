@@ -49,10 +49,10 @@ services:
     networks:
       - devops-network
 
-  networks:
-    devops-network:
-      driver: bridge
+networks:
+  devops-network:
+    driver: bridge
 
-  volumes:
-    mysql-data:
-    nexus-data:
+volumes:
+  mysql-data:
+  nexus-data:
