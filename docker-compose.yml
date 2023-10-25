@@ -21,4 +21,4 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: devops
     ports:
-      - "3307:3306"
+      - "3310:3306"
