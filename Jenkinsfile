@@ -28,6 +28,11 @@ pipeline {
                         sh "mvn deploy"
                   }
             }
+               stage("Docker Image") {
+                  steps{
+                        sh "docker build -t devops:1.0 ."
+                  }
+            }
 
       }
 }
