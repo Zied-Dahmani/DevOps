@@ -41,6 +41,10 @@ pipeline {
                           sh "docker push souhailkrs/devops:1.0"
                     }
             }
+      stage("Docker Compose") {
+                  steps{
+                        sh "docker compose up -d"
+                  }
 
       }
 }
