@@ -17,6 +17,12 @@ pipeline {
                         sh "mvn compile"
                   }
             }
+
+            stage("Build") {
+                  steps{
+                        sh "mvn build"
+                  }
+            }
             
             stage("SonarQube") {
                   steps{
