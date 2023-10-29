@@ -6,6 +6,7 @@ pipeline {
             SONAR_PASSWORD = "test"
       }
 
+
       stages {
             stage("Clean") {
                   steps{
@@ -32,6 +33,13 @@ pipeline {
                   steps{
                         sh "docker build -t devops:1.0 ."
                   }
+            }
+            stage("Docker Hub") {
+                    steps{
+                          sh "docker login -u SouhailKrs -p dckr_pat_T6nf5NYfJYP8JJ9jihqZBMe5j78"
+                          sh "docker tag devops:1.0 SouhailKrs/devops:1.0"
+                          sh "docker push SouhailKrs/devops:1.0"
+                    }
             }
 
       }
