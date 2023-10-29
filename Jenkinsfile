@@ -1,6 +1,10 @@
 pipeline {
 
       agent any
+      environment {
+            SONAR_LOGIN = "admin"
+            SONAR_PASSWORD = "test"
+      }
 
       stages {
             stage("Clean") {
@@ -14,5 +18,11 @@ pipeline {
                         sh "mvn compile"
                   }
             }
+            stage("SonarQube") {
+                  steps{
+                       sh "mvn sonar:sonar -Dsonar.login=${env.SONAR_LOGIN} -Dsonar.password=${env.SONAR_PASSWORD}"
+                  }
+            }
+
       }
 }
