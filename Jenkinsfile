@@ -31,5 +31,11 @@ pipeline {
                         sh "mvn test"
                   }
             }
+
+            stage("Nexus") {
+                  steps{
+                        sh "mvn deploy"
+                  }
+            }
       }
 }
