@@ -1,4 +1,4 @@
-package tn.esprit.devops_project.services;
+package tn.esprit.devops_project;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -7,7 +7,6 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import tn.esprit.devops_project.entities.Supplier;
 import tn.esprit.devops_project.repositories.SupplierRepository;
-import tn.esprit.devops_project.services.SupplierServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,10 +1,10 @@
-package tn.esprit.devops_project.services;
+package tn.esprit.devops_project;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.devops_project.entities.ActivitySector;
 import tn.esprit.devops_project.repositories.ActivitySectorRepository;
-import tn.esprit.devops_project.services.Iservices.IActivitySector;
+import tn.esprit.devops_project.Iservices.IActivitySector;
 
 import java.util.List;
 
