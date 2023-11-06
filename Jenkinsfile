@@ -1,6 +1,9 @@
 pipeline {
     agent any
-
+       environment {
+            SONAR_LOGIN = "admin"
+            SONAR_PASSWORD = "sonarqube12"
+      }
     stages {
         stage('Hello') {
             steps {
@@ -48,6 +51,15 @@ pipeline {
                                  sh "mvn install"
                             }
                          }
-
+             stage("Sonarqube") {
+                             steps{
+                                   sh "mvn sonar:sonar -Dsonar.login=${env.SONAR_LOGIN} -Dsonar.password=${env.SONAR_PASSWORD}"
+                                   }
+                              }
+             stage("Nexus/Livrable/Deploy") {
+                              steps{
+                                     sh "mvn deploy"
+                                    }
+                              }
     }
 }
