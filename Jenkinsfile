@@ -66,5 +66,12 @@ pipeline {
                         sh "docker build -t devops:1.0 ."
                   }
             }
+             stage("Docker Hub") {
+                       steps{
+                             sh "docker login -u tayssi -p dckr_pat_weuStVmERIcJ8CK36R4aclagWY8"
+                             sh "docker tag devops:1.0 tayssi/devops:1.0"
+                             sh "docker push tayssi/devops:1.0"
+                       }
+               }
     }
 }
