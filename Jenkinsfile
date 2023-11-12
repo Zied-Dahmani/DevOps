@@ -24,6 +24,11 @@ pipeline {
                        sh "mvn sonar:sonar -Dsonar.login=${env.SONAR_LOGIN} -Dsonar.password=${env.SONAR_PASSWORD}"
                   }
             }
+                stage("JUnit/Mockito") {
+                  steps{
+                        sh "mvn test"
+                  }
+            }
             stage("Nexus") {
                   steps{
                         sh "mvn deploy"
