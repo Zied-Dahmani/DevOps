@@ -5,11 +5,20 @@ pipeline {
             SONAR_PASSWORD = "sonarqube12"
       }
     stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
-        }
+         stage('GitFront') {
+                             steps {
+
+                               git branch:'main',
+                                url :'https://github.com/EmnaEmna/devopsFront1.git';
+
+
+                             }
+                         }
+     stage("Docker ImageFront") {
+                   steps{
+                         sh "docker build -t tayssi/imagefront:1.0 ."
+                   }
+             }
           stage('Git') {
                      steps {
                          echo 'git';
