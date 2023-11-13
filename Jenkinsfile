@@ -49,5 +49,22 @@ pipeline {
                         sh "docker compose up -d"
                   }
             }
+            post{
+              always{
+                  sh 'docker logout'
+              }
+              success {            
+                  mail to :'louay.labidi@esprit.tn',
+                  subject : 'Successful Build of Jenkins Pipeline',
+                  body : 'Great news! Springboot application was built successfully',
+                  from : 'louulabidi@gmail.com'
+              }
+              failure {
+                  mail to :'louay.labidi@esprit.tn',
+                  subject : 'Jenkins Build Of The Backend Failed',
+                  body : 'Unfortunately, the Jenkins build of the spring boot backend has encountered an issue and failed.',
+                  from : 'louulabidi@gmail.com'
+              }
+        }
       }
 }
