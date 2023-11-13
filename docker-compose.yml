@@ -38,14 +38,13 @@ services:
           }'
 
   mysql:
-    image: mysql
-    container_name: mysqlSpring
+    image: mysql:5.7
+    container_name: mysql
     environment:
-      - MYSQL_ROOT_PASSWORD: root12
-      - MYSQL_DATABASE: devops1
-      - MYSQL_USER: root
-    volumes:
-      - mysql-data:/var/lib/mysql
+      - MYSQL_ROOT_PASSWORD=root12
+      - MYSQL_DATABASE=devops
     ports:
-      - "3306:3306"
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
 

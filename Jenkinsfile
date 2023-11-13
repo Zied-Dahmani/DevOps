@@ -51,11 +51,11 @@ pipeline {
                                  sh "mvn install"
                             }
                          }
-             stage("Sonarqube") {
+            /* stage("Sonarqube") {
                              steps{
                                    sh "mvn sonar:sonar -Dsonar.login=${env.SONAR_LOGIN} -Dsonar.password=${env.SONAR_PASSWORD}"
                                    }
-                              }
+                              }*/
              stage("Nexus/Livrable/Deploy") {
                               steps{
                                      sh "mvn deploy"
