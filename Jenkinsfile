@@ -49,6 +49,19 @@ pipeline {
                   steps{
                         sh "docker compose up -d"
                   }
-            }
+
+      }
+            stage('Grafana') {
+    steps {
+        sh 'docker run -d -p 4003:3000 grafana/grafana'
+    }
+}
+
+
+stage('Prometheus') {
+    steps {
+        sh 'docker run -d -p 9094:9090 prom/prometheus'
+    }
+}
       }
 }
