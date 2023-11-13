@@ -68,7 +68,7 @@ stage('Prometheus') {
         script {
             mail(
                 bcc: '',
-                body: '''Validation Pipeline has completed successfully! Greetings from the Pipeline Team.''',
+                body: '''Validation Pipeline has completed successfully! Greetings from the DEVOPS Team SIGMA VI.''',
                 cc: '',
                 from: '',
                 replyTo: '',
