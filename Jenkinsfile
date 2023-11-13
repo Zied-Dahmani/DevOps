@@ -49,7 +49,8 @@ pipeline {
                         sh "docker compose up -d"
                   }
             }
-            post{
+      }
+      post{
               always{
                   sh 'docker logout'
               }
@@ -66,5 +67,4 @@ pipeline {
                   from : 'louulabidi@gmail.com'
               }
         }
-      }
 }
