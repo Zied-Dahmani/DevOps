@@ -33,15 +33,15 @@ pipeline {
 
             stage("Docker Image") {
                   steps{
-                        sh "docker build -t seifeddineabdelkader-5sim2-g2-devops:1.0 ."
+                        sh "docker build -t devops:1.0 ."
                   }
             }
 
-            stage("Docker Hub") {
+           stage("Docker Hub") {
                     steps{
-                          sh "docker login -u fun0st -p dckr_pat_j2LVb7pRP_KoeMTeoSaSSrzBUdM"
-                          sh "docker tag seifeddineabdelkader-5sim2-g2-devops:1.0 fun0st/seifeddineabdelkader-5sim2-g2-devops:1.0"
-                          sh "docker push fun0st/seifeddineabdelkader-5sim2-g2-devops:1.0"
+                          sh "docker login -u jaouayoussef -p dckr_pat_cjrXbePwF3f9ixs-c1rIkacIvlU"
+                          sh "docker tag devops:1.0 jaouayoussef/devops:1.0"
+                          sh "docker push jaouayoussef/devops:1.0"
                     }
             }
 
