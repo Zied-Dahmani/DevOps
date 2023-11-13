@@ -6,21 +6,22 @@ pipeline {
             SONAR_PASSWORD = "sonar"
       }
       stages {
+
             stage("Build") {
                   steps{
                         sh "mvn package"
                   }
             }
 
-            stage("JUnit/Mockito") {
-                  steps{
-                        sh "mvn test"
-                  }
-            }
-
             stage("SonarQube") {
                   steps{
                        sh "mvn sonar:sonar -Dsonar.login=${env.SONAR_LOGIN} -Dsonar.password=${env.SONAR_PASSWORD}"
+                  }
+            }
+
+            stage("JUnit/Mockito") {
+                  steps{
+                        sh "mvn test"
                   }
             }
 
@@ -32,15 +33,15 @@ pipeline {
 
             stage("Docker Image") {
                   steps{
-                        sh "docker build -t louaylabidi-5sim2-g2-devops:1.0 ."
+                        sh "docker build -t seifeddineabdelkader-5sim2-g2-devops:1.0 ."
                   }
             }
 
             stage("Docker Hub") {
                     steps{
-                          sh "docker login -u louayyy69 -p dckr_pat_s4bthkcjix1AKw0Ptu3DW06gg-s"
-                          sh "docker tag louaylabidi-5sim2-g2-devops:1.0 louayyy69/louaylabidi-5sim2-g2-devops:1.0"
-                          sh "docker push louayyy69/louaylabidi-5sim2-g2-devops:1.0"
+                          sh "docker login -u fun0st -p dckr_pat_j2LVb7pRP_KoeMTeoSaSSrzBUdM"
+                          sh "docker tag seifeddineabdelkader-5sim2-g2-devops:1.0 fun0st/seifeddineabdelkader-5sim2-g2-devops:1.0"
+                          sh "docker push fun0st/seifeddineabdelkader-5sim2-g2-devops:1.0"
                     }
             }
 
