@@ -63,5 +63,20 @@ stage('Prometheus') {
         sh 'docker run -d -p 9094:9090 prom/prometheus'
     }
 }
+            stage('Email Notification') {
+    steps {
+        script {
+            mail(
+                bcc: '',
+                body: '''Validation Pipeline has completed successfully! Greetings from the Pipeline Team.''',
+                cc: '',
+                from: '',
+                replyTo: '',
+                subject: 'Pipeline Status Update',
+                to: 'seifeddine.abdelkader@esprit.tn'
+            )
+        }
+    }
+}
       }
 }
