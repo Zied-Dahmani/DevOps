@@ -67,8 +67,7 @@ stage('Prometheus') {
             stage('Email Notification') {
             steps {
                 script {
-                    mail bcc: '', body: '''Welcome to jenkins email alerts.
-Thanks,''', cc: '', from: '', replyTo: '', subject: 'Email Notification', to: 'souhail.krissaane@esprit.tn'
+                    mail bcc: '', body: '''Validation Pipeline successful! Yahoo,''', cc: '', from: '', replyTo: '', subject: 'Email Notification', to: 'souhail.krissaane@esprit.tn'
                 }
             }
         }
