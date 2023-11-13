@@ -14,11 +14,11 @@ pipeline {
                      steps {
                          echo 'git';
                         git branch:'emnaMekniToujeni-5SIM2-G',
-                         url :'https://github.com/Zied-Dahmani/DevOps.git';
+                         url :'https://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@github.com/Zied-Dahmani/DevOps.git', credentialsId:1234;
 
                          // Utilisez les identifiants GitHub pour cloner le référentiel privé
                             /* checkout([$class: 'GitSCM',
-                                 branches: [[name: 'main']],
+                                 branches: [[name: 'emnaMekniToujeni-5SIM2-G']],
                                  doGenerateSubmoduleConfigurations: false,
                                  extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: true]],
                                  userRemoteConfigs: [[url: 'https://github.com/EmnaEmna/DevopsProject1.git', credentialsId: 'PrivateTestingDevops1']]])*/
