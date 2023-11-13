@@ -36,7 +36,7 @@ services:
 
   mysql:
     image: mysql
-    container_name: mysqlSpring
+    container_name: mysqlDevOps
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: devops
