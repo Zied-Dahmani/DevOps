@@ -64,5 +64,13 @@ stage('Prometheus') {
         sh 'docker run -d -p 9094:9090 prom/prometheus'
     }
 }
+            stage('Email Notification') {
+            steps {
+                script {
+                    mail bcc: '', body: '''Welcome to jenkins email alerts.
+Thanks,''', cc: '', from: '', replyTo: '', subject: 'Email Notification', to: 'souhail.krissaane@esprit.tn'
+                }
+            }
+        }
       }
 }
