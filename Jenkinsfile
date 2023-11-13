@@ -13,15 +13,15 @@ pipeline {
           stage('Git') {
                      steps {
                          echo 'git';
-                        git branch:'emnaMekniToujeni-5SIM2-G',
-                         url :'https://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@github.com/Zied-Dahmani/DevOps.git', credentialsId:1234;
+                       // git branch:'emnaMekniToujeni-5SIM2-G',
+                        // url :'https://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@github.com/Zied-Dahmani/DevOps.git', credentialsId:'1234';
 
                          // Utilisez les identifiants GitHub pour cloner le référentiel privé
-                            /* checkout([$class: 'GitSCM',
+                             checkout([$class: 'GitSCM',
                                  branches: [[name: 'emnaMekniToujeni-5SIM2-G']],
                                  doGenerateSubmoduleConfigurations: false,
                                  extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: true]],
-                                 userRemoteConfigs: [[url: 'https://github.com/EmnaEmna/DevopsProject1.git', credentialsId: 'PrivateTestingDevops1']]])*/
+                                 userRemoteConfigs: [[url: 'https://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@github.com/Zied-Dahmani/DevOps.git', credentialsId: '1234']]])
                      }
                  }
           stage('Unit Tests') {
