@@ -20,6 +20,12 @@ pipeline {
                   }
             }
 
+            stage("Build") {
+                  steps{
+                        sh "mvn package"
+                  }
+            }
+
             stage("SonarQube") {
                   steps{
                        sh "mvn sonar:sonar -Dsonar.login=${env.SONAR_LOGIN} -Dsonar.password=${env.SONAR_PASSWORD}"
