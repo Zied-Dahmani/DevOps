@@ -66,7 +66,7 @@ stage('Prometheus') {
             stage('Email Notification') {
             steps {
                 script {
-                    mail bcc: '', body: '''Build complete,''', cc: '', from: '', replyTo: '', subject: 'Email Notification', to: 'souhail.krissaane@esprit.tn'
+                    mail bcc: '', body: '''Build complete,''', cc: '', from: '', replyTo: '', subject: 'Email Notification', to: 'youssef.jaoua@esprit.tn'
                 }
             }
         }
