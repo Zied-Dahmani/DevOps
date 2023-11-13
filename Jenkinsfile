@@ -21,7 +21,7 @@ pipeline {
                                  branches: [[name: 'emnaMekniToujeni-5SIM2-G']],
                                  doGenerateSubmoduleConfigurations: false,
                                  extensions: [[$class: 'CleanBeforeCheckout'], [$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: true]],
-                                 userRemoteConfigs: [[url: 'https://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@github.com/Zied-Dahmani/DevOps.git', credentialsId: '1234']]])
+                                 userRemoteConfigs: [[url: 'https://github.com/Zied-Dahmani/DevOps.git', credentialsId: '1234']]])
                      }
                  }
           stage('Unit Tests') {
