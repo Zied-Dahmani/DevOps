@@ -1,32 +1,31 @@
 version: '1'
 
 services:
-  sonarqube:
-    image: sonarqube:latest
-    ports:
-      - "9010:9000"
-      - "9011:9092"
-    networks:
-      - devops-network
-    environment:
-      - SONARQUBE_JDBC_USERNAME=admin
-      - SONARQUBE_JDBC_PASSWORD=sonarqube12
+#  sonarqube:
+#    image: sonarqube:latest
+#    ports:
+#      - "9010:9000"
+#      - "9011:9092"
+#    networks:
+#      - devops-network
+#    environment:
+#      - SONARQUBE_JDBC_USERNAME=admin
+#      - SONARQUBE_JDBC_PASSWORD=sonarqube12
 
-  nexus:
-    image: sonatype/nexus3:latest
-    ports:
-      - "8011:8086"
-    networks:
-      - devops-network
-    volumes:
-      - nexus-data:/nexus-data
+#  nexus:
+#    image: sonatype/nexus3:latest
+#    ports:
+#      - "8011:8086"
+#    networks:
+#      - devops-network
+#    volumes:
+#      - nexus-data:/nexus-data
 
   spring-app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: ./
+    image: tayssi/imageback:1.0
     ports:
-      - "8010:8082"
+      - "8082:8082"
     depends_on:
       - mysql
     environment:
@@ -41,11 +40,10 @@ services:
       MYSQL_ROOT_PASSWORD: root12
       MYSQL_DATABASE: devops1
       MYSQL_USER: root
-      MYSQL_PASSWORD: root12
     volumes:
       - mysql-data:/var/lib/mysql
     ports:
-      - "3310:3306"
+      - "3306:3306"
     networks:
       - devops-network
 
