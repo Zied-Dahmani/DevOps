@@ -48,14 +48,14 @@ pipeline {
                                             sh "mvn compile"
                                       }
                                 }
-           /* stage("Build1") {
+            stage("mvn package") {
                                       steps{
                                             sh "mvn package"
                                       }
                                 }
-*/
 
-            stage("Build") {
+
+            stage("mvn install") {
                             steps{
                                  sh "mvn install"
                             }
