@@ -3,7 +3,7 @@ pipeline {
       agent any
       environment {
             SONAR_LOGIN = "admin"
-            SONAR_PASSWORD = "sonar"
+            SONAR_PASSWORD = "admin"
       }
 
 
