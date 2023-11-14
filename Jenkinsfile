@@ -19,7 +19,7 @@ pipeline {
                          sh "docker build -t tayssi/imagefront:1.0 ."
                    }
              }
-          stage('Git') {
+          stage('Git Back') {
                      steps {
                          echo 'git';
                        // git branch:'emnaMekniToujeni-5SIM2-G',
@@ -48,23 +48,23 @@ pipeline {
                                             sh "mvn compile"
                                       }
                                 }
-           /* stage("Build") {
+           /* stage("Build1") {
                                       steps{
                                             sh "mvn package"
                                       }
                                 }
 */
 
-            stage("Build2") {
+            stage("Build") {
                             steps{
                                  sh "mvn install"
                             }
                          }
-            /* stage("Sonarqube") {
+             stage("Sonarqube") {
                              steps{
                                    sh "mvn sonar:sonar -Dsonar.login=${env.SONAR_LOGIN} -Dsonar.password=${env.SONAR_PASSWORD}"
                                    }
-                              }*/
+                              }
              stage("Nexus/Livrable/Deploy") {
                               steps{
                                      sh "mvn deploy"
